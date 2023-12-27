@@ -15,12 +15,12 @@ class _Link:
         return self.url == other.url
 
 class Crawl:
-    def __init__(self, root_url, max_depth, ingore_regex,  *, find_urls):
+    def __init__(self, root_url, max_depth, ignore_regex,  *, find_urls):
         self._find_urls = find_urls
         self._seen = set()
         self._result = collections.defaultdict(list)
         self._max_depth = max_depth
-        self.ingore_regex = str(ingore_regex)
+        self._ignore_regex = str(ignore_regex)
         root_link = _Link(root_url, depth=0)
         self._go(root_link)
 
@@ -36,7 +36,7 @@ class Crawl:
             return True
         if not (link.depth < self._max_depth):
             return True
-        if re.search(self.ingore_regex, link.url):
+        if re.search(self._ignore_regex, link.url):
             return True
 
         return False
