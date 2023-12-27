@@ -128,7 +128,7 @@ def test_depth_4_link_tree_with_ignore_regex_start_link11():
         s.find_links('link2.1') >> []
         s.find_links('link1.2.1') >> []
 
-        tested = crawler.crawl.Crawl('root', 4, "^link1\.1", find_urls=Fake('find_links'))
+        tested = crawler.crawl.Crawl('root', 4, r"^link1\.1", find_urls=Fake('find_links'))
         assert tested.web_of_links() == [
                 ['root'],
                 ['link1', 'link2'],
