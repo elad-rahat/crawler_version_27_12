@@ -35,7 +35,9 @@ class Crawl:
     def _add_links_from(self, link):
         links = self._find_links(link)
         self._seen.add(link)
-        new_links = [link_ for link_ in links if ((link_ not in self._seen) and (link_.depth < self.max_depth) and (not(re.search(self.ingore_regex, link_.url))))]
+        new_links = [link_ for link_ in links if ((link_ not in self._seen) /
+                                                  and (link_.depth < self.max_depth) and /
+                                                  (not(re.search(self.ingore_regex, link_.url))))]
         if len(new_links) == 0:
             return
 
