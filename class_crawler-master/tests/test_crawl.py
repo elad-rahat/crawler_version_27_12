@@ -155,7 +155,7 @@ def test_depth_4_link_tree_with_ingore_regex_start_link12():
         ]
 
 
-def test_depth_4_link_tree_with_ingore_regex_no_meaning():
+def test_depth_4_link_tree_with_ingore_regex_mean_nothing():
     with Scenario() as s:
         s.find_links('root') >> ['link1', 'link2']
         s.find_links('link1') >> ['link1.1', 'link1.2']
